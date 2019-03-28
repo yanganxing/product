@@ -1,5 +1,6 @@
 package com.alix.product.controller;
 
+import com.alix.product.dto.CartDTO;
 import com.alix.product.dataobjcet.ProductCategory;
 import com.alix.product.dataobjcet.ProductInfo;
 import com.alix.product.service.CategoryService;
@@ -73,5 +74,10 @@ public class ProductController {
     @PostMapping("/listForOrder")
     public List<ProductInfo> listForOrder(@RequestBody List<String> productIdList){
         return productService.findList(productIdList);
+    }
+
+    @PostMapping("/decreaseStock")
+    private void decreaseStock(@RequestBody List<CartDTO> cartDTOList){
+        productService.decreaseStock(cartDTOList);
     }
 }

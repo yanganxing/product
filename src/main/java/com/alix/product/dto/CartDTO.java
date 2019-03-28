@@ -1,4 +1,4 @@
-package com.alix.product.DTO;
+package com.alix.product.dto;
 
 import lombok.Data;
 
@@ -19,4 +19,14 @@ public class CartDTO {
      * 商品数量
      * */
     private Integer productQuantity;
+
+
+    public CartDTO(){
+
+    }
+
+    public CartDTO(String productId, Integer productQuantity) {
+        this.productId = productId;
+        this.productQuantity = productQuantity;
+    }
 }

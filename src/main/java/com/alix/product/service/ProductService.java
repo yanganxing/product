@@ -1,7 +1,7 @@
 package com.alix.product.service;
 
 
-import com.alix.product.DTO.CartDTO;
+import com.alix.product.dto.CartDTO;
 import com.alix.product.dataobjcet.ProductInfo;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.alix.product.service.impl;
 
 
-import com.alix.product.DTO.CartDTO;
+import com.alix.product.dto.CartDTO;
 import com.alix.product.dataobjcet.ProductInfo;
 import com.alix.product.enums.ResultEnum;
 import com.alix.product.exception.ProductException;
@@ -52,12 +52,11 @@ public class ProductServiceImpl implements ProductService {
             //检查库存是否充足
             ProductInfo productInfo = productInfoOptional.get();
             Integer result = productInfo.getProductStock() - cartDTO.getProductQuantity();
-            if(result < 0){
+            if(result < 0){ //库存不足
                 throw new ProductException(ResultEnum.PRODUCT_STOCK_ERROR);
             }
             productInfo.setProductStock(result);
             productInfoRepository.save(productInfo);
-
         }
     }
 
